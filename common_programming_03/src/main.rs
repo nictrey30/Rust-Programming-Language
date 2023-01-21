@@ -6,7 +6,6 @@ fn main() {
 
     let y = {
         let x = 3;
-        // expressions do not include ending semicolons. if you add a semicolon at the end of an expression, you turn it into a statement, which will then not return a value
         // expressions do not incude semicolons
         // if you add a semicolon to the end of an expression, you turn it into a statement, which will then NOT return a value
         x + 1
