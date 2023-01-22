@@ -14,7 +14,7 @@ fn main() {
         println!("The temp in Fahrenheit is: {}", temp_fahren);
         let celsius = (temp_fahren - 32) * 5 / 9;
         println!("The temp in celsius is: {}", celsius);
-        let continue_game = quitting();
+        let continue_game = is_quitting();
         if continue_game == false {
             break;
         } else {
