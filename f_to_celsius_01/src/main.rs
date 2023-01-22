@@ -23,7 +23,7 @@ fn main() {
     }
 }
 
-fn quitting() -> bool {
+fn is_quitting() -> bool {
     loop {
         println!("Do you want to continue? y/n: ");
         let mut quitting = String::new();
