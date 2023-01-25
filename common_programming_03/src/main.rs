@@ -1,4 +1,9 @@
 fn main() {
+    // because if is an expression, we can use it on the right side of a let statement
+    let condition = true;
+    let number = if condition { 1 } else { 0 };
+    println!("The value of number is: {}", number);
+
     another_function(5, 7);
 
     let x = five();
