@@ -39,3 +39,4 @@ fn main() {
         println!("the value is: {}", elem);
     }
 }
+// the safety and concisness of for loops make them the most commonly used loop construct in rust
