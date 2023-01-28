@@ -49,6 +49,12 @@ fn main() {
 
     // s2_2 is moved into takes_and_give_back, which also move its return value into s3_2
     let s3_2 = takes_and_give_back(s2_2);
+
+    // what if we want to let a function use a value, but not take ownership? It is annoying that anything we pass it also needs to be passed back if we want to use it again
+    // returning multiple values using a tuple
+    let s1_3 = String::from("returning_multiple_values");
+    let (s2_3, len) = calculate_length(s1_3);
+    println!("The length of '{}' is {}", s2_3, len);
 } // here s3_2 goes out of scope and is dropped. s2_2 goes out of scope, but was moved into takes_and_gives_back, so nothing happens. s1_2 goes out of scope and is dropped
 
 // some_string comes into scope
@@ -70,5 +76,13 @@ fn gives_ownership() -> String {
 
 // takes_and_give_back will take a String and return one
 fn takes_and_give_back(a_string: String) -> String {
+    // a_string is returned and moves out to the calling function
     a_string
+}
+
+// The ownership of avariable follows the same pattern every time: assigning a value to another moves it.
+// When a variable that includes data on the heap goes out of scope, the value will be cleaned up by 'drop' unless the data has been moved to be owned by another variable
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len();
+    (s, length)
 }
