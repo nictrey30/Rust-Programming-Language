@@ -22,13 +22,53 @@ fn main() {
     // Rust will never automatically create "deep" cpies of your data
 
     // clone
-    let s3 = String::from("hello");
+    let s1_1 = String::from("hello");
     // if we do want to deeply copy the heap data, not just the stack data, we can use a common method called clone
-    let s4 = s3.clone();
-    println!("s3 = {}, s4 = {}", s3, s4);
+    let s2_1 = s1_1.clone();
+    println!("s1_1 = {}, s2_1= {}", s1_1, s2_1);
 
     // stack-only data: copy
     // Rust has a special annotation called the Copy trait and if a type has Copy trait, an older variable is still usable after assignment
     // Rust won't let us annotate a type with the Copy trait if the type or any of its parts has implemented the Drop trait
     // types that have Copy trait: all integers types, boolean, floating point, char, tuples(if they only ontain types that are also Copy)
+
+    // Ownership and Functions
+    // passing a variable to a function will move or copy, just as assignment does
+
+    let s1_2 = String::from("some_string"); // s5 comes into scope
+    takes_ownership(s1_2); // s5's value moves into the function, and it is no longer valid here
+
+    let x = 5; // x comes into scope
+    makes_copy(x); // x would into the function, but i32 is Copy, so it's ok to still use x afterwards
+
+    // Return Values and Scope
+    // return values can also transfer ownership
+    let s1_2 = gives_ownership(); // gives_ownership moves its return value into s1_2
+
+    let s2_2 = String::from("some_string - gives ownership"); // s2_2 comes into scope
+
+    // s2_2 is moved into takes_and_give_back, which also move its return value into s3_2
+    let s3_2 = takes_and_give_back(s2_2);
+} // here s3_2 goes out of scope and is dropped. s2_2 goes out of scope, but was moved into takes_and_gives_back, so nothing happens. s1_2 goes out of scope and is dropped
+
+// some_string comes into scope
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string);
+} // here, some_string goes out of scope and 'drop' is called
+
+// some_integer comes into scope
+fn makes_copy(some_integer: i32) {
+    println!("{}", some_integer);
+} // here, some_integer goes out of scope. Nothing special happens
+
+// gives_ownership will move its return value into the function that calls it
+fn gives_ownership() -> String {
+    let some_string = String::from("some_string - gives ownership");
+    // some_string is returned and moves out to the calling function
+    some_string
+}
+
+// takes_and_give_back will take a String and return one
+fn takes_and_give_back(a_string: String) -> String {
+    a_string
 }
