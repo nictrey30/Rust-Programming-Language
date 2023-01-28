@@ -43,12 +43,12 @@ fn main() {
 
     // Return Values and Scope
     // return values can also transfer ownership
-    let s1_2 = gives_ownership(); // gives_ownership moves its return value into s1_2
+    let _s1_2 = gives_ownership(); // gives_ownership moves its return value into s1_2
 
     let s2_2 = String::from("some_string - gives ownership"); // s2_2 comes into scope
 
     // s2_2 is moved into takes_and_give_back, which also move its return value into s3_2
-    let s3_2 = takes_and_give_back(s2_2);
+    let _s3_2 = takes_and_give_back(s2_2);
 
     // what if we want to let a function use a value, but not take ownership? It is annoying that anything we pass it also needs to be passed back if we want to use it again
     // returning multiple values using a tuple
