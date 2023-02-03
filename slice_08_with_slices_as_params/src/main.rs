@@ -10,7 +10,7 @@ fn main() {
     // first_word works on slices of string literals
     // let word = first_word(&my_string_literal[..]);
     // because string literals are string slices already, this works too:
-    let word = first_word(&my_string_literal);/home/him/Learn/Rust/Rust-Programming-Language/slice_08/src
+    let word = first_word(&my_string_literal);
     println!("The first word is: {}", word);
 }
 fn first_word(s: &str) -> &str {
