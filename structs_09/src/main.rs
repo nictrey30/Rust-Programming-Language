@@ -22,7 +22,7 @@ fn main() {
         String::from("someusername123"),
     );
     // struct update syntax ..
-    let user2 = User {
+    let _user2 = User {
         username: String::from("anotherusername567"),
         email: String::from("another@example.com"),
         ..user1
@@ -32,8 +32,8 @@ fn main() {
     // tuple structs are useful when you want to give the whole tuple a name and make the tuple be a diffrent type from other tuples
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
-    let black = Color(0, 0, 0);
-    let origin = Point(0, 0, 0);
+    let _black = Color(0, 0, 0);
+    let _origin = Point(0, 0, 0);
     // black and origin are diffrent types, because they're instances of diffrent tuple structs
 }
 fn build_user(email: String, username: String) -> User {

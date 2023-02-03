@@ -9,9 +9,9 @@ struct Rectangle {
 impl Rectangle {
     // Rust knows the type of self is rectangle due to this method's being inside the impl Rectangle context
 
-    // we've chosen &self here because we don't want to take ownership, and we just want to read the data in the struct, notwrite to it.
+    // we've chosen &self here because we don't want to take ownership, and we just want to read the data in the struct, not write to it.
     // if we wanted to change the instance that we've called the method on as part of what the method does, we'd use &mut self as the first parameter
-    // using self as param is rare, use case: prevent the caller from using the original instance, as the method transforms self into something else
+    // using just self as param is rare, use case: prevent the caller from using the original instance, as the method transforms self into something else
     fn area(&self) -> u32 {
         self.width * self.height
     }
@@ -23,3 +23,5 @@ fn main() {
     };
     println!("The area of the rectangle is: {}", rect1.area());
 }
+
+// when you call a method with object.something(), Rust aautomatically adds in &, &mut or * so object matches the signature of the method
