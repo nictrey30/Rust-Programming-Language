@@ -22,7 +22,7 @@ fn main() {
 
 // fn first_word returns a slice. The type that signifies "string slice" is written as "&str"
 fn first_word(s: &String) -> &str {
-    // if we have a $str(string slice) as a parameter: if we have &str, we can pass a string slice directly. If we have a String, we can pass a slice of the entire String
+    // if we have &str, we can pass a string slice directly. If we have a String, we can pass a slice of the entire String
     // fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
     // iter is a method that returns each element in a collection and that enumerate wraps the result of iter and returns each element as part of a tuple instead. The first element of the tuple returned from enumerate is the index, and the second element is a reference to the element. This is a bit more convenient than calculating the index ourselves.

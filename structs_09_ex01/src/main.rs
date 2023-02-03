@@ -16,7 +16,7 @@ fn main() {
     println!("rect1 is {:#?}", rect1);
 }
 // function defined with one parameter(type Rectangle), whose type is an immutable borrow of a struct Rectangle instance. We want to borrow the struct rather than take ownership of it.
-// This way, main retains its ownership and can continue sing rect1
+// This way, main retains its ownership and can continue using rect1
 fn calculate_area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
