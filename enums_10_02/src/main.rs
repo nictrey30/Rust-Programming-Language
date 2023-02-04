@@ -12,7 +12,6 @@ enum Message {
 
 // unit struct
 // struct QuitMessage;
-// struct QuitMessage
 // struct MoveMessage {
 //   x: i32,
 //   y: i32
