@@ -45,6 +45,12 @@ mod back_of_house {
     }
 }
 
+// bringing path into scope with absolute path, so that we use hosting::...
+// use crate::front_of_house::hosting;
+
+// bringing path into scope with relative path, so that we use hosting::...
+// use front_of_house::hosting;
+
 // eat_at_restaurant is part of our library crate's public API, so we mark it with the 'pub' keyword
 pub fn eat_at_restaurant() {
     // absolute path
@@ -54,3 +60,5 @@ pub fn eat_at_restaurant() {
     // relative path
     front_of_house::hosting::add_to_waitlist();
 }
+
+// bringing two types with the same name in the same scope requires using their prent modules
