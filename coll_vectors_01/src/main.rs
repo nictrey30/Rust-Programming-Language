@@ -32,7 +32,7 @@ fn main() {
     // we can also iterate over mutable references in order to make changes to all elements
     let mut v6 = vec![100, 22, 53];
     for i in &mut v6 {
-        // to change the value that the mutable reference refers to, we have to use the deference operator (*)
+        // to change the value that the mutable reference refers to, we have to use the deference operator * to get the value in i before we can use the += operator
         *i += 10;
     }
     println!("The modified vector v6 is: ");
@@ -40,10 +40,15 @@ fn main() {
         println!("{}", i);
     }
 
-    // using an enum to store multiple types
+    // using an enum to store multiple types in a vector
     enum SpreadsheetCell {
         Int(i32),
         Float(f64),
         Text(String),
     }
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Float(10.15),
+        SpreadsheetCell::Text(String::from("blue")),
+    ];
 }

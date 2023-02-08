@@ -13,13 +13,13 @@ fn main() {
     // move
     let s1 = String::from("hello");
     // when we assign s1 to s2, the String data is copied; pointer, length and capacity, that are on the stack. It doesn't copy the data on the heap that the pointer refers to
-    // When the variable goes out of scope, Rust calls the drop function, but bot pointers point to the same location in heap. When s1 and s2 go out of scope, they will bth try to free te same memory(known as double free error)
-    // To ensure memory safety, Rust considers s1 to no longer be valid and, therefore, Rust doesn't need t free anything when s1 goes out of scope
+    // When the variable goes out of scope, Rust calls the drop function, but both pointers point to the same location in heap. When s1 and s2 go out of scope, they will bth try to free te same memory(known as double free error)
+    // To ensure memory safety, Rust considers s1 to no longer be valid and, therefore, Rust doesn't need to free anything when s1 goes out of scope
     let s2 = s1;
     println!("{}, world!", s2);
     // println!("{}, world!", s1); - doesn't work: value borrowed after the move
     // we could say that s1 was moved into s2
-    // Rust will never automatically create "deep" cpies of your data
+    // Rust will never automatically create "deep" copies of your data
 
     // clone
     let s1_1 = String::from("hello");

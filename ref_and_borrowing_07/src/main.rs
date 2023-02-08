@@ -3,7 +3,7 @@
 // borrowing - having references as parameters in functions. the catch is that you cannot modify them, because they are borrowed. References are immutable by default. we are not allowed to modify something we have a reference to.
 fn main() {
     let mut s1 = String::from("hello");
-    // the &s1 syntax lets us create a reference that refers to the value of s1, but does not own it. Because it does not own it, the value it points to will not pe drpped when the reference goes out of scope
+    // the &s1 syntax lets us create a reference that refers to the value of s1, but does not own it. Because it does not own it, the value it points to will not pe dropped when the reference goes out of scope
     let len = calculate_length(&s1);
     println!("The length of {} is: {}", s1, len);
     change(&mut s1);
